@@ -16,6 +16,7 @@ uma tabela com todos esses livros solicitados. Conhecimentos usados:<br>
 •	Template web AdminLTE-3.0.5 <br>
 •	HTML 5<br>
 •	CSS 3<br>
+•	JavaScript<br>
 •	Editor de texto: Microsoft Visual Studio Code 1.63.2<br>
 
 <h3>Observações</h3>

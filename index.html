@@ -13,6 +13,12 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../dist/js/adminlte.min.js"></script>
+    <script src="scripts/script.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -20,6 +26,8 @@
         <div class="container-fluid">
           <div class="content-header">
             <center>
+              <input type="text" id="rel" />
+              <hr />
               <div class="container-fluid">
                 <h1 class="m-0 text-dark">Solicitação de Livros</h1>
               </div>
@@ -29,127 +37,126 @@
             <div class="col-lg-12">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <form
-                    name="f1"
-                    method="POST"
-                    action=""
-                  >
-                    <div class="form-group">
+                  <form name="f1" method="POST" id="form_prepare" action="">
+                    <fieldset>
                       <div class="form-group">
-                        <div class="col-md-12">
-                          <label>Selecione vinculo</label>
-                          <div class="input-group">
-                            <div class="dropdown">
-                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Selecione o vinculo
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Aluno</a>
-                                <a class="dropdown-item" href="#">Discente</a>
-                                <a class="dropdown-item" href="#">Técnico</a>
-                              </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <label
+                              class="input-group-text"
+                              for="inputGroupSelect"
+                              >Selecione o vinculo</label
+                            >
+                          </div>
+                          <select
+                            class="custom-select"
+                            id="inputGroupSelect"
+                            required
+                          >
+                            <option value=""></option>
+                            <option value="Docente">Docente</option>
+                            <option value="Discente">Discente</option>
+                            <option value="Técnico">Técnico</option>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-md-12">
+                            <label>Autor</label>
+                            <div class="input-group">
+                              <input
+                                name="autor"
+                                type="text"
+                                class="form-control"
+                                placeholder="Digite o autor do livro"
+                                required
+                              />
                             </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div class="form-group">
-                        <div class="col-md-12">
-                          <label>Autor</label>
-                          <div class="input-group">
-                            <input
-                              name="autor"
-                              type="text"
-                              class="form-control"
-                              placeholder="Digite o autor do livro"
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-12">
-                          <label>ISSN</label>
-                          <div class="input-group">
-                            <input
-                              name="issn"
-                              type="number"
-                              class="form-control"
-                              placeholder="Digite o issn do livro"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-12">
-                          <label>Editora</label>
-                          <div class="input-group">
-                            <input
-                              name="editora"
-                              type="text"
-                              class="form-control"
-                              placeholder="Digite a editora do livro"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-12">
-                          <label>Titulo</label>
-                          <div class="input-group">
-                            <input
-                              name="titulo"
-                              type="text"
-                              class="form-control"
-                              placeholder="Digite a titulo do livro"
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-12">
-                          <label>Edição</label>
-                          <div class="input-group">
-                            <input
-                              name="edicao"
-                              type="number"
-                              class="form-control"
-                              placeholder="Digite a edição do livro"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="col-md-12">
-                          <label>Ano</label>
-                          <div
-                            class="input-group"
-                          >
-                            <input
-                              name="numero"
-                              type="number"
-                              class="form-control"
-                              placeholder="Digite a ano do livro"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <hr />
-                      <center>
                         <div class="form-group">
-                          <button type="submit" class="btn btn-success">
-                            Solicitar Livro
-                          </button>
+                          <div class="col-md-12">
+                            <label>ISSN</label>
+                            <div class="input-group">
+                              <input
+                                name="issn"
+                                type="number"
+                                class="form-control"
+                                placeholder="Digite o issn do livro"
+                              />
+                            </div>
+                          </div>
                         </div>
-                      </center>
-                    </div>
+
+                        <div class="form-group">
+                          <div class="col-md-12">
+                            <label>Editora</label>
+                            <div class="input-group">
+                              <input
+                                name="editora"
+                                type="text"
+                                class="form-control"
+                                placeholder="Digite a editora do livro"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-md-12">
+                            <label>Titulo</label>
+                            <div class="input-group">
+                              <input
+                                name="titulo"
+                                type="text"
+                                class="form-control"
+                                placeholder="Digite o titulo do livro"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-md-12">
+                            <label>Edição</label>
+                            <div class="input-group">
+                              <input
+                                name="edicao"
+                                type="number"
+                                class="form-control"
+                                placeholder="Digite a edição do livro"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-md-12">
+                            <label>Ano</label>
+                            <div class="input-group">
+                              <input
+                                name="ano"
+                                type="number"
+                                class="form-control"
+                                placeholder="Digite o ano do livro"
+                                onchange="validar_ano()"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr />
+                        <center>
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                              Solicitar Livro
+                            </button>
+                          </div>
+                        </center>
+                      </div>
+                    </fieldset>
                   </form>
 
                   <hr />
@@ -158,7 +165,7 @@
                   </center>
                   <hr />
 
-                  <table class="table">
+                  <table class="table" id="grid">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">Vinculo</th>
@@ -170,58 +177,49 @@
                         <th scope="col">Editora</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
+                    <tbody></tbody>
                   </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../dist/js/adminlte.min.js"></script>
-    <script>
-      function validar_ano() {
-        if (input >= 1900 && input <= 2019) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    </script>
   </body>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#form_prepare").submit(function () {
+        var $this = $(this);
+
+        var tr =
+          "<tr>" +
+          "<td>" +
+          $this.find("select[id='inputGroupSelect']").val() +
+          "</td>" +
+          "<td>" +
+          $this.find("input[name='titulo']").val() +
+          "</td>" +
+          "<td>" +
+          $this.find("input[name='autor']").val() +
+          "</td>" +
+          "<td>" +
+          $this.find("input[name='edicao']").val() +
+          "</td>" +
+          "<td>" +
+          $this.find("input[name='issn']").val() +
+          "</td>" +
+          "<td>" +
+          $this.find("input[name='ano']").val() +
+          "</td>" +
+          "<td>" +
+          $this.find("input[name='editora']").val() +
+          "</td>" +
+          "</tr>";
+        $("#grid").find("tbody").append(tr);
+
+        return false;
+      });
+    });
+  </script>
 </html>
