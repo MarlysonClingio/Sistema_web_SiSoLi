@@ -12,12 +12,13 @@ uma tabela com todos esses livros solicitados. Conhecimentos usados:<br>
 • User Experience<br>
 
 <h3>Ferramentas e tecnologias utilizadas</h3>
-•	Bootstrap 4.3.1 e Jquery<br>
-•	Template web AdminLTE-3.0.5 <br>
-•	HTML 5<br>
-•	CSS 3<br>
-•	JavaScript<br>
-•	Editor de texto: Microsoft Visual Studio Code 1.63.2<br>
+•   Bootstrap 4.3.1 e Jquery<br>
+•   Template web AdminLTE-3.0.5 <br>
+•   HTML 5<br>
+•   CSS 3<br>
+•   JavaScript<br>
+•   Editor de texto: Microsoft Visual Studio Code 1.63.2<br>
 
 <h3>Observações</h3>
 • Projeto criado como o resultado da terceira fase do processo seletivo da Brasil System<br>
+• Utilizar o plugin do VSCode: "Live Server v5.7.3"(versão atual nesse momento) para iniciar um servidor local de desenvolvimento com recurso de recarga para páginas estáticas e dinâmicas, ou qualquer outro server compatível de sua preferência. Caso contrário, a página não será carregada corretamente.<br>

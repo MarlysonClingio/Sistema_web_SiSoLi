@@ -13,12 +13,12 @@
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
 
     <script src="../plugins/jquery/jquery.min.js"></script>
     <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../dist/js/adminlte.min.js"></script>
-    <script src="scripts/script.js"></script>
+    <script src="/scripts/script.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -26,7 +26,9 @@
         <div class="container-fluid">
           <div class="content-header">
             <center>
-              <input type="text" id="rel" />
+              <!-- div do display do contador regressivo -->
+              <div id="timer"></div>
+              <!-- -->
               <hr />
               <div class="container-fluid">
                 <h1 class="m-0 text-dark">Solicitação de Livros</h1>
@@ -37,9 +39,11 @@
             <div class="col-lg-12">
               <div class="card card-primary card-outline">
                 <div class="card-body">
-                  <form name="f1" method="POST" id="form_prepare" action="">
+                  <!-- Inicio do formulário -->
+                  <form name="f1" method="POST" id="form_prepare">
                     <fieldset>
                       <div class="form-group">
+                        <!-- div da seleção do vinculo dropdown -->
                         <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <label
@@ -59,12 +63,15 @@
                             <option value="Técnico">Técnico</option>
                           </select>
                         </div>
+                        <!-- Termino da div da seleção do vinculo dropdown -->
 
+                        <!-- Inicio das divs dos inputs do formulário-->
                         <div class="form-group">
                           <div class="col-md-12">
                             <label>Autor</label>
                             <div class="input-group">
                               <input
+                                id="autor"
                                 name="autor"
                                 type="text"
                                 class="form-control"
@@ -80,6 +87,7 @@
                             <label>ISSN</label>
                             <div class="input-group">
                               <input
+                                id="issn"
                                 name="issn"
                                 type="number"
                                 class="form-control"
@@ -94,6 +102,7 @@
                             <label>Editora</label>
                             <div class="input-group">
                               <input
+                                id="editora"
                                 name="editora"
                                 type="text"
                                 class="form-control"
@@ -108,6 +117,7 @@
                             <label>Titulo</label>
                             <div class="input-group">
                               <input
+                                id="titulo"
                                 name="titulo"
                                 type="text"
                                 class="form-control"
@@ -123,6 +133,7 @@
                             <label>Edição</label>
                             <div class="input-group">
                               <input
+                                id="edicao"
                                 name="edicao"
                                 type="number"
                                 class="form-control"
@@ -137,28 +148,39 @@
                             <label>Ano</label>
                             <div class="input-group">
                               <input
+                                id="ano"
                                 name="ano"
                                 type="number"
                                 class="form-control"
                                 placeholder="Digite o ano do livro"
+                                data-dismiss="alert"
                                 onchange="validar_ano()"
                               />
                             </div>
                           </div>
                         </div>
+                        <!-- Termino das divs dos inputs do formulário -->
 
+                        <!-- Button submit do formulário -->
                         <hr />
                         <center>
                           <div class="form-group">
-                            <button type="submit" class="btn btn-success">
+                            <button
+                              type="submit"
+                              class="btn btn-success"
+                              id="button"
+                            >
                               Solicitar Livro
                             </button>
                           </div>
                         </center>
+                        <!-- Termino Button submit do formulário -->
                       </div>
                     </fieldset>
                   </form>
+                  <!-- Termino do formulário -->
 
+                  <!-- Inicio da tabela de solicitação -->
                   <hr />
                   <center>
                     <h2>Tabela de solicitação</h2>
@@ -177,8 +199,9 @@
                         <th scope="col">Editora</th>
                       </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="body"></tbody>
                   </table>
+                  <!-- Termino da tabela de solicitação -->
                 </div>
               </div>
             </div>
@@ -187,39 +210,11 @@
       </div>
     </div>
   </body>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("#form_prepare").submit(function () {
-        var $this = $(this);
 
-        var tr =
-          "<tr>" +
-          "<td>" +
-          $this.find("select[id='inputGroupSelect']").val() +
-          "</td>" +
-          "<td>" +
-          $this.find("input[name='titulo']").val() +
-          "</td>" +
-          "<td>" +
-          $this.find("input[name='autor']").val() +
-          "</td>" +
-          "<td>" +
-          $this.find("input[name='edicao']").val() +
-          "</td>" +
-          "<td>" +
-          $this.find("input[name='issn']").val() +
-          "</td>" +
-          "<td>" +
-          $this.find("input[name='ano']").val() +
-          "</td>" +
-          "<td>" +
-          $this.find("input[name='editora']").val() +
-          "</td>" +
-          "</tr>";
-        $("#grid").find("tbody").append(tr);
-
-        return false;
-      });
-    });
+  <!-- Scripts JavaScript -->
+  <script>
+    var livros = add_livros();
+    var tempo = chamando_tempo_regressivo();
   </script>
+  <!-- -->
 </html>
